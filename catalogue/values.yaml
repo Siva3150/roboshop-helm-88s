@@ -1,0 +1,6 @@
+deployment: 
+ imageRepo: siva3150/catalogue 
+ imageVersion: v1 
+service: 
+ type: ClusterIP 
+ servicePort: 8080  
