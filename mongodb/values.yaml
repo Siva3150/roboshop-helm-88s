@@ -1,0 +1,6 @@
+deployemnt: 
+ imageRepo: siva3150/mongodb 
+ imageVersion: v1 
+service: 
+ type: ClusterIP 
+ servicePort: 27017 
