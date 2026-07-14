@@ -1,0 +1,44 @@
+# service, headless service, statefulset, pvc
+
+apiVersion: apps/v1  
+kind: StatefulSet 
+metadata: 
+ name: rabbitmq 
+ namespace: roboshop 
+spec: 
+ selector: 
+  matchLabels:
+   project: roboshop 
+   component: rabbitmq 
+   tier: db
+ replicas: 2 #by default 1 
+ serviceName: "rabbitmq-headless" # this should be head less service name
+ template: 
+  metadata: 
+   labels: 
+    project: roboshop 
+    component: rabbitmq 
+    tier: db
+  spec: 
+   containers: 
+   - name: rabbitmq  
+     image: "{{ .Values.deployment.imageRepo }}:{{ .Values.deployment.imageVersion }}" # rabbitmq:3
+     volumeMounts: 
+     - name: rabbitmq 
+       mountPath: /var/lib/rabbitmq
+     env:
+     - name: RABBITMQ_DEFAULT_USER
+       value: roboshop
+     - name: RABBITMQ_DEFAULT_PASS
+       value: roboshop123
+
+# This is PVC
+ volumeClaimTemplates:
+ - metadata:
+    name: rabbitmq  
+   spec:
+    accessModes: [ "ReadWriteOnce" ]
+    storageClassName: "roboshop-ebs"
+    resources:
+      requests:
+        storage: 1Gi
