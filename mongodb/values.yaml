@@ -1,4 +1,4 @@
-deployemnt: 
+deployment: 
  imageRepo: siva3150/mongodb 
  imageVersion: v1 
 service: 
