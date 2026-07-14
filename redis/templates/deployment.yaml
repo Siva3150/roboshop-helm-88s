@@ -22,7 +22,7 @@ spec:
   spec: 
    containers: 
    - name: redis  
-     image: "{{ .values.deployment.imageRepo }}:{{ .Values.deployment.imageVersion }}" #redis:7.0
+     image: "{{ .Values.deployment.imageRepo }}:{{ .Values.deployment.imageVersion }}" #redis:7.0
      volumeMounts: 
      - name: redis 
        mountPath: /data 
