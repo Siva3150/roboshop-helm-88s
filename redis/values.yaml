@@ -1,6 +1,6 @@
 deployment: 
- imageRepo: siva3150/mongodb 
+ imageRepo: siva3150/redis  
  imageVersion: v1 
 service: 
  type: ClusterIP 
- servicePort: 27017 
+ servicePort: 6379 
