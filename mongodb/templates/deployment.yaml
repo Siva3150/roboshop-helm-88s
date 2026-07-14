@@ -22,7 +22,7 @@ spec:
   spec: 
    containers: 
    - name: mongodb  
-     image: "{{ .Values.desployment.imageRepo }}:{{ .Values.deployment.imageVersion }}"
+     image: "{{ .Values.deployment.imageRepo }}:{{ .Values.deployment.imageVersion }}"
      volumeMounts: 
      - name: mongodb 
        mountPath: /data/db
